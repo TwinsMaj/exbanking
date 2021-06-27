@@ -2,7 +2,8 @@
   "name": "@twinsmaj/exbanking",
   "version": "1.0.0",
   "description": "A simple NPM package banking application written in Typescript language.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "commit": "git-cz",
     "format": "prettier --config .prettierrc 'src/**/*.{js,ts,json,md}' --write",
