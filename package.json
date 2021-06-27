@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "test": "jest --config=jest.config.ts --detectOpenHandles",
-    "prepare": "rm -rf '.husky' && husky install & npm run prepare:husky",
+    "prepare": "rm -rf '.husky' && husky install && npm run prepare:husky",
     "prepare:husky": "npx husky add .husky/pre-commit 'npx lint-staged\nnpm run test'"
   },
   "repository": {
