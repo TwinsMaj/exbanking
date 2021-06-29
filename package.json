@@ -51,5 +51,9 @@
       "npm run format",
       "npm run lint:fix"
     ]
+  },
+  "dependencies": {
+    "@types/dinero.js": "^1.8.0",
+    "dinero.js": "^1.8.1"
   }
 }
