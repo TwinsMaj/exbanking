@@ -16,3 +16,13 @@ A simple NPM package banking application written in Typescript language.
 
 - Decreases user's balance in given `currency` by `amount` value
 - Returns `new_balance` of the user in given format
+
+`const getBalance = (username: string, currency: string): (Ok & { balance: number } | BankingError) => {};`
+
+- Returns `balance `of the user in given format
+
+`const send = (fromUsername: string, toUsername: string, amount: number, currency: string): (Ok & { fromUsernameBalance: number, toUsernameBalance: number } | BankingError) => {};`
+
+- Decreases `fromUsername's` balance in given `currency` by `amount` value
+- Increases `toUsername's` balance in given `currency` by `amount` value
+- Returns `balance` of `fromUser` and `toUser` in given format
