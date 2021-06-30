@@ -1,69 +1,42 @@
-// import { Account } from './Account';
-
-// const j = new Account();
-
-// j.credit(500.34, 'USD');
-
-// console.log(j.debit(200.8, 'USD'));
-// console.log(j.getAccounts());
-
-// import Dinero from 'dinero.js';
-// /* eslint-disable new-cap */
-// // export const exbanking = (): string => {
-// // 	return 'welcome...';
-// // };
-
-// try {
-// 	const factor = Math.pow(10, 2);
-// 	const amt = 3.5;
-// 	const shipping = 22.32;
-// 	const price = Dinero({ amount: Math.round(amt * factor), currency: 'eur' });
-
-// 	const np = price.add(Dinero({ amount: Math.round(shipping * factor), currency: 'eur' }));
-
-// 	console.log(np.getAmount() / factor);
-// } catch (e) {
-// 	console.log(e.getMessage());
-// }
-// import { formatAmt } from './utils/format-amount';
-
-// const o = formatAmt(0.0, 'EUR').toFormat();
-
-// console.log(o);
-
-// import { formatAmt } from './utils/currency';
-
-// const o = formatAmt(45.67, 'EUR');
-
-// console.log(o);
-
-import { BalanceInquiry } from './services/balance-inquiry';
-import { BankDatabase } from './bank-database';
+/* eslint-disable require-jsdoc */
+import { Withdrawal } from './services/withdrawal';
 import { Deposit } from './services/deposit';
+import { BankDatabase } from './bank-database';
+import { BankingError, NewBalance, OK, Balance, TransferBalance } from './types';
+import { BalanceInquiry } from './services/balance-inquiry';
 import { Transfer } from './services/transfer';
-// import { Withdrawal } from './withdrawal';
 
-const db = new BankDatabase();
+const bankDatabase = new BankDatabase();
 
-// db.createAccount('jones');
+export function createUser(username: string): OK | BankingError {
+	return bankDatabase.createAccount(username);
+}
 
-const c = new Deposit('jones', 20.85, 'USD', db);
-const o = new Deposit('tola', 5.0, 'USD', db);
-const tr = new Transfer('jones', 'tola', 5, 'AUD', db);
-const bi = new BalanceInquiry('jones', 'AUD', db);
+export function deposit(username: string, amount: number, currency: string): (OK & NewBalance) | BankingError {
+	const depositService = new Deposit(username, amount, currency, bankDatabase);
 
-c.execute();
-o.execute();
-const re = tr.execute();
-const d = bi.execute();
-// const w = new Withdrawal('jonres', 8, 'USD', db);
-// const a = w.execute();
+	return depositService.execute();
+}
 
-console.log(re, d);
+export function withdrawal(username: string, amount: number, currency: string): (OK & NewBalance) | BankingError {
+	const withdrawalService = new Withdrawal(username, amount, currency, bankDatabase);
 
-// let a: number;
-// const o = 5;
+	return withdrawalService.execute();
+}
 
-// a = o.toPrecision(2);
+export function send(
+	fromUsername: string,
+	toUsername: string,
+	amount: number,
+	currency: string,
+): (OK & TransferBalance) | BankingError {
+	const transferService = new Transfer(fromUsername, toUsername, amount, currency, bankDatabase);
 
-// console.log(5 / 2);
+	return transferService.execute();
+}
+
+export function getBalance(username: string, currency: string): (OK & Balance) | BankingError {
+	const balanceInquiry = new BalanceInquiry(username, currency, bankDatabase);
+
+	return balanceInquiry.execute();
+}
