@@ -18,3 +18,7 @@ export type BankingError =
 	| NotEnoughMoney
 	| SenderDoesNotExist
 	| ReceiverDoesNotExist;
+
+export type Accounts = {
+	[key: string]: number;
+};

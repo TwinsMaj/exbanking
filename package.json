@@ -24,15 +24,18 @@
   },
   "homepage": "https://github.com/TwinsMaj/exbanking#readme",
   "devDependencies": {
+    "@types/dinero.js": "^1.8.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.14.41",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "cz-conventional-changelog": "^3.3.0",
+    "dinero.js": "^1.8.1",
     "eslint": "^7.24.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "get-user-locale": "^1.4.0",
     "husky": "^6.0.0",
     "jest": "^27.0.5",
     "lint-staged": "^10.5.4",
@@ -51,9 +54,5 @@
       "npm run format",
       "npm run lint:fix"
     ]
-  },
-  "dependencies": {
-    "@types/dinero.js": "^1.8.0",
-    "dinero.js": "^1.8.1"
   }
 }
