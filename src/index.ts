@@ -37,7 +37,7 @@
 
 // console.log(o);
 
-// import { BalanceInquiry } from './services/balance-inquiry';
+import { BalanceInquiry } from './services/balance-inquiry';
 import { BankDatabase } from './bank-database';
 import { Deposit } from './services/deposit';
 import { Transfer } from './services/transfer';
@@ -47,16 +47,23 @@ const db = new BankDatabase();
 
 // db.createAccount('jones');
 
-const c = new Deposit('jones', 20, 'AUD', db);
-const o = new Deposit('tola', 5, 'USD', db);
+const c = new Deposit('jones', 20.85, 'USD', db);
+const o = new Deposit('tola', 5.0, 'USD', db);
 const tr = new Transfer('jones', 'tola', 5, 'AUD', db);
-// const bi = new BalanceInquiry('jones', 'USD', db);
+const bi = new BalanceInquiry('jones', 'AUD', db);
 
 c.execute();
 o.execute();
 const re = tr.execute();
-// const d = bi.execute();
+const d = bi.execute();
 // const w = new Withdrawal('jonres', 8, 'USD', db);
 // const a = w.execute();
 
-console.log(re);
+console.log(re, d);
+
+// let a: number;
+// const o = 5;
+
+// a = o.toPrecision(2);
+
+// console.log(5 / 2);
