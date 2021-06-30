@@ -1,5 +1,4 @@
-import { AccountsDontMatch } from './index';
-import { Account } from '../Account';
+import { Account } from '../account';
 
 export interface AppErrors extends Error {
 	type: string;
