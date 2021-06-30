@@ -1,4 +1,4 @@
-# release.yml
+# release.yml for git actions
 
 name: Release
 on:
