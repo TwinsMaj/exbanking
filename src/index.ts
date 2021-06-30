@@ -1,4 +1,5 @@
 /* eslint-disable require-jsdoc */
+
 import { Withdrawal } from './services/withdrawal';
 import { Deposit } from './services/deposit';
 import { BankDatabase } from './bank-database';
