@@ -1,6 +1,8 @@
 # exbanking
 A simple NPM package banking application written in Typescript language.
 
+# install
+`npm i @twinsmaj/exbanking`
 
 ## API Reference
 `const createUser = (username: string): OK | BankingError => {}`
