@@ -3,7 +3,7 @@
 		"declaration": true,
 		"target": "es5",
 		"module": "commonjs",
-		"rootDir": "./src",
+		"baseUrl": "./src",
 		"outDir": "./dist",
 		"lib": ["esnext"],
 		"removeComments": false,
@@ -19,5 +19,6 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true
 	},
-	"exclude": ["dist", "node_modules"]
+	"exclude": ["dist", "node_modules"],
+  "include": ["src"]
 }
