@@ -1,6 +1,6 @@
 {
   "name": "@twinsmaj/exbanking",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple NPM package banking application written in Typescript language.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "test": "jest --config=jest.config.ts --detectOpenHandles",
     "prepare": "rm -rf '.husky' && husky install && npm run prepare:husky",
-    "prepare:husky": "npx husky add .husky/pre-commit 'npx lint-staged\nnpm run test'"
+    "prepare:husky": "npx husky add .husky/pre-commit 'npx lint-staged && npm run test'"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,6 @@
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "cz-conventional-changelog": "^3.3.0",
-    "dinero.js": "^1.8.1",
     "eslint": "^7.24.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.1.0",
@@ -61,5 +60,8 @@
       "npm run format",
       "npm run lint:fix"
     ]
+  },
+  "dependencies": {
+    "dinero.js": "^1.8.1"
   }
 }
